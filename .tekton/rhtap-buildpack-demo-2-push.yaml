@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   annotations:
-    build.appstudio.openshift.io/repo: 'https://github.com/ch007m/tekton-pac?rev={{revision}}'
+    build.appstudio.openshift.io/repo: 'https://github.com/halkyonio/rhtap-buildpack-demo-2?rev={{revision}}'
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
@@ -236,16 +236,11 @@ spec:
           - name: SOURCE_SUBPATH
             value: "" #getting-started
           - name: CNB_BUILDER_IMAGE
-            value: paketobuildpacks/builder-jammy-tiny:0.0.176 #${BUILDER_IMAGE}
+            value: quay.io/ch007m/nodejs-ubi-extension-builder #${BUILDER_IMAGE}
           - name: CNB_LIFECYCLE_IMAGE
             value: buildpacksio/lifecycle:0.17.0 #${LIFECYCLE_IMAGE}
           - name: RUN_IMAGE
-            value: paketobuildpacks/run-jammy-tiny:latest #${RUN_IMAGE}
-          - name: ENV_VARS
-            value:
-              - BP_NATIVE_IMAGE=false
-              - BP_MAVEN_BUILT_ARTIFACT=target/quarkus-app/lib/ target/quarkus-app/*.jar target/quarkus-app/app/ target/quarkus-app/quarkus/
-              - BP_MAVEN_BUILD_ARGUMENTS=package -DskipTests=true -Dmaven.javadoc.skip=true -Dquarkus.package.type=fast-jar
+            value: paketocommunity/run-ubi-base #${RUN_IMAGE}
         runAfter:
           - clone-repository
         taskRef:
