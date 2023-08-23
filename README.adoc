@@ -1,0 +1,61 @@
+= Tekton and Shipwright templates
+:icons: font
+:revdate: {docdate}
+:toc: left
+:toclevels: 2
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Introduction
+
+This GitHub template project contains the code source needed to build a Node.js runtime exposing these endpoints: `/hello` and `+/hello/greeting/{name}+`
+using different pipelines:
+
+- RHTAP Buildpack pipeline using https://pipelinesascode.com/[PipelineAsCode]: tekton/pipelinerun-rhtap-buildpack.yaml
+- Tekton Buildpack https://tekton.dev/[pipeline]: TODO
+- https://shipwright.io/[Shipwright] Buildpack (Cluster)BuildStrategy: TODO
+
+IMPORTANT: Instructions to play with the PipelineRun on RHTAP are available within this https://github.com/redhat-buildpacks/testing/tree/main#4-rhtap[project].
+
+## Running The Example
+
+You can run this example as node processes on your localhost, as pods on a local
+[OpenShift Local](https://developers.redhat.com/products/openshift-local/overview) installation.
+
+### Localhost
+
+To run the basic application on your local machine, just run the commands bellow:
+
+```
+$ npm install
+$ npm start
+```
+
+This will launch the application on port 8080.
+
+Other options:
+
+* `npm run dev` same as `npm start` but with pretty output log.
+* `npm run dev:debug` shows debug information.
+
+### OpenShift Local
+
+OpenShift Local should be started, and you should be logged in with a currently
+active project. Then run the `npm run openshift` command.
+
+```sh
+$ crc setup # Set-up the hypervisor
+$ crc start # Initialize the openshift cluster
+$ oc login -u developer # Login
+$ oc new-project my-example-project # Create a project to deploy to
+$ npm run openshift # Deploys the example app
+```
+
+### OpenTelemetry with OpenShift Distributed Tracing Platform
+
+This [link](./OTEL.md) contains instructions on how to install the OpenShift Distributed Tracing Platform and enable tracing.
