@@ -27,7 +27,7 @@ spec:
       value: 5d
     - name: output-image
       # Example: quay.io/redhat-user-workloads/cmoullia-tenant/rhtap-buildpack-demo-2/nodejs-ext-1:8e532f04f5cd873acc57cf5d0514111af93a8b91
-      value: quay.io/redhat-user-workloads/cmoullia-tenant/rhtap-buildpack-demo-2/nodejs-ext:build-{{revision}} # >> changeme
+      value: quay.io/redhat-user-workloads/cmoullia-tenant/rhtap-buildpack-demo-2/rhtap-buildpack-demo-2:build-{{revision}} # >> changeme
     - name: path-context
       value: .
     - name: revision
