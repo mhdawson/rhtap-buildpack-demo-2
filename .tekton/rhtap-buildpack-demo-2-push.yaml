@@ -237,6 +237,8 @@ spec:
             value: "" #getting-started
           - name: CNB_BUILDER_IMAGE
             value: quay.io/ch007m/nodejs-ubi-extension-builder #${BUILDER_IMAGE}
+          - name: CNB_BUILD_IMAGE
+            value: paketocommunity/build-ubi-base
           - name: CNB_LIFECYCLE_IMAGE
             value: buildpacksio/lifecycle:0.17.0 #${LIFECYCLE_IMAGE}
           - name: RUN_IMAGE
