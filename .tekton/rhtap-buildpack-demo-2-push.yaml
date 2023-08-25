@@ -14,7 +14,7 @@ metadata:
     appstudio.openshift.io/application: rhtap-buildpack-demo-2  # >> changeme
     appstudio.openshift.io/component: rhtap-buildpack-demo-2 # >> changeme
     pipelines.appstudio.openshift.io/type: build
-    rhtap.snowdrop.dev/build: "test-0" # >> changeme
+    rhtap.snowdrop.dev/build: "test-1" # >> changeme
   name: nodejs-ext # >> changeme
   namespace: cmoullia-tenant # >> changeme
 spec:
@@ -251,7 +251,7 @@ spec:
             - name: url
               value: https://github.com/redhat-buildpacks/testing.git
             - name: revision
-              value: fca81ce
+              value: 9c344ec
             - name: pathInRepo
               value: k8s/tekton/buildpacks-extension-phases.yml
         when:
