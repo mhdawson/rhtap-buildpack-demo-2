@@ -14,7 +14,7 @@ metadata:
     appstudio.openshift.io/application: rhtap-buildpack-demo-2  # >> changeme
     appstudio.openshift.io/component: rhtap-buildpack-demo-2 # >> changeme
     pipelines.appstudio.openshift.io/type: build
-    rhtap.snowdrop.dev/build: "test-2" # >> changeme
+    rhtap.snowdrop.dev/build: "test-3" # >> changeme
   name: nodejs-ext # >> changeme
   namespace: cmoullia-tenant # >> changeme
 spec:
